@@ -79,7 +79,7 @@ public class DaoRegistros implements Iregistros {
         //se abre la base en modo lectura
         SQLiteDatabase lectura = coneSql.getReadableDatabase();
         //Armar la consulta de la tabla
-        String consultasql = "Select * from registro_pedidos";
+        String consultasql = "Select * from registro_pedidos where estado=1";
         //clase cursor
         Cursor cursor = lectura.rawQuery(consultasql, null);
         //
@@ -132,7 +132,9 @@ public class DaoRegistros implements Iregistros {
         Conexi conexi = new Conexi(context);
         SQLiteDatabase database = conexi.getWritableDatabase();
 
-        database.execSQL("DELETE FROM registro_pedidos WHERE id=" + i + "");
+        database.execSQL("update registro_pedidos set estado=0 where id=" + i + "");
+        //DELETE FROM registro_pedidos WHERE id=" + i + "
+
         return elida;
     }
 
