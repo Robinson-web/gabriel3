@@ -26,6 +26,7 @@ public class DaoRegistros implements Iregistros {
         registro.put("descripcion", object.getDescripcion());
         registro.put("valor", object.getValor());
         registro.put("fecha_entrega", object.getFecha());
+        registro.put("estado",object.getEstado());
         if (consulta.insert("registro_pedidos", null, registro) > 0) {
             respuesta = true;
             conexi.close();
@@ -56,35 +57,26 @@ public class DaoRegistros implements Iregistros {
 
     @Override
     public ArrayList<registros> read(Main3Activity context) {
-        //se crea el arraylist donde se van a guardar la lista de registros que se almacenaran
         ArrayList<registros> list = new ArrayList<registros>();
-        //define objeto del modelo
         registros object;
-        //defino la conexion
         Conexi coneSql = new Conexi(context);
-        //se abre la base en modo lectura
         SQLiteDatabase lectura = coneSql.getReadableDatabase();
         //Armar la consulta de la tabla
-        String consultasql = "Select * from registro_pedidos where estado=1";
+        String consultasql = "Select * from registro_pedidos where estado= 1";
         //clase cursor
         Cursor cursor = lectura.rawQuery(consultasql, null);
-        //
         if (cursor.moveToFirst()) {
             do {
                 object = new registros();
-
                 object.setId_registros(Integer.parseInt(cursor.getString(0)));
                 object.setNombre(cursor.getString(1));
                 object.setDireccion(cursor.getString(2));
                 object.setDescripcion(cursor.getString(3));
                 object.setValor(cursor.getString(4));
                 object.setFecha(cursor.getString(5));
-
                 list.add(object);
             } while (cursor.moveToNext());
-
         }
-
         coneSql.close();
         return list;
     }
