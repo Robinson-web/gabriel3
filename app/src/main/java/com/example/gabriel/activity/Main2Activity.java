@@ -36,8 +36,6 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        //
-
         nombre=findViewById(R.id.Edt_Nombre);
         direccion=findViewById(R.id.Edt_Direccion);
         descripcion=findViewById(R.id.Edt_Descripcion);
@@ -117,16 +115,13 @@ public class Main2Activity extends AppCompatActivity {
         }
     }
     private void registrar() {
-
         registros object = new registros();
         DaoRegistros dao = new DaoRegistros();
-
         object.setNombre(nombre.getText().toString());
         object.setDireccion(direccion.getText().toString());
         object.setDescripcion(descripcion.getText().toString());
         object.setValor(valor.getText().toString());
         object.setFecha(fecha.getText().toString());
-
         if(dao.create(object,this)==true){
             Toast toast = Toast.makeText(getApplicationContext(),"Registro Guardado",Toast.LENGTH_SHORT);
             toast.show();
