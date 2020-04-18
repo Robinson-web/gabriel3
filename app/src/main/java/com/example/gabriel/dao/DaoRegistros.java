@@ -19,20 +19,13 @@ public class DaoRegistros implements Iregistros {
     public boolean create(registros object, Main2Activity context) {
         boolean respuesta = false;
         Conexi conexi = new Conexi(context);
-        //se usa la clase SqlitedATABASE PARA poder sobre escribir la base de datos
         SQLiteDatabase consulta = conexi.getWritableDatabase();
-        //se usa el conten values para poder hacer los registros con el procedimiento clave valor
         ContentValues registro = new ContentValues();
-        //registro por medio de clave valor
-
         registro.put("nombre", object.getNombre());
         registro.put("direccion", object.getDireccion());
         registro.put("descripcion", object.getDescripcion());
         registro.put("valor", object.getValor());
         registro.put("fecha_entrega", object.getFecha());
-        registro.put("estado",1);
-
-        //condicion de ingreso mayor a 0
         if (consulta.insert("registro_pedidos", null, registro) > 0) {
             respuesta = true;
             conexi.close();
@@ -124,10 +117,10 @@ public class DaoRegistros implements Iregistros {
         registros elida = new registros();
         Conexi conexi = new Conexi(context);
         SQLiteDatabase database = conexi.getWritableDatabase();
-
-        database.execSQL("update registro_pedidos set estado=0 where id=" + i + "");
+        ContentValues values = new ContentValues();
+        values.put("estado", 0);
+        database.update("registro_pedidos", values, "id=" + i, null);
         //DELETE FROM registro_pedidos WHERE id=" + i + "
-
         return elida;
     }
 
