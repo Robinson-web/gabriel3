@@ -109,7 +109,7 @@ public class DaoRegistros implements Iregistros {
         registros Registros = new registros();
         Conexi conexi = new Conexi(context);
         SQLiteDatabase database = conexi.getReadableDatabase();
-        Cursor cursor = database.rawQuery("SELECT * FROM registro_pedidos", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM registro_pedidos where estado=1", null);
         if (cursor.moveToFirst()) {
             do {
                 if (cursor.getInt(0) == id) {
