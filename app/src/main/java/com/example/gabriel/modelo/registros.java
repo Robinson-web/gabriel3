@@ -20,7 +20,7 @@ public class registros {
         this.descripcion="";
         this.valor="";
         this.fecha="";
-        this. estado=0;
+        this. estado=1;
         this.fechaingreso="";
     }
 

@@ -29,7 +29,8 @@ public class DaoRegistros implements Iregistros {
         registro.put("direccion", object.getDireccion());
         registro.put("descripcion", object.getDescripcion());
         registro.put("valor", object.getValor());
-        registro.put("fecha", object.getFecha());
+        registro.put("fecha_entrega", object.getFecha());
+        registro.put("estado",1);
 
         //condicion de ingreso mayor a 0
         if (consulta.insert("registro_pedidos", null, registro) > 0) {
@@ -71,7 +72,7 @@ public class DaoRegistros implements Iregistros {
         //se abre la base en modo lectura
         SQLiteDatabase lectura = coneSql.getReadableDatabase();
         //Armar la consulta de la tabla
-        String consultasql = "Select * from registro_pedidos";
+        String consultasql = "Select * from registro_pedidos where estado=1";
         //clase cursor
         Cursor cursor = lectura.rawQuery(consultasql, null);
         //
@@ -124,7 +125,9 @@ public class DaoRegistros implements Iregistros {
         Conexi conexi = new Conexi(context);
         SQLiteDatabase database = conexi.getWritableDatabase();
 
-        database.execSQL("DELETE FROM registro_pedidos WHERE id=" + i + "");
+        database.execSQL("update registro_pedidos set estado=0 where id=" + i + "");
+        //DELETE FROM registro_pedidos WHERE id=" + i + "
+
         return elida;
     }
 
