@@ -18,7 +18,6 @@ public class DaoRegistros implements Iregistros {
     @Override
     public boolean create(registros object, Main2Activity context) {
         boolean respuesta = false;
-
         Conexi conexi = new Conexi(context);
         //se usa la clase SqlitedATABASE PARA poder sobre escribir la base de datos
         SQLiteDatabase consulta = conexi.getWritableDatabase();
@@ -39,8 +38,9 @@ public class DaoRegistros implements Iregistros {
         }
         return respuesta;
     }
+
     @Override
-    public boolean  modificar_da(registros object, Main2Activity contexts, int via) {
+    public boolean modificar_da(registros object, Main2Activity contexts, int via) {
         boolean respuesta = false;
         int i = via;
         Conexi conexi = new Conexi(contexts);
@@ -48,25 +48,20 @@ public class DaoRegistros implements Iregistros {
         SQLiteDatabase consulta = conexi.getWritableDatabase();
         //se usa el conten values para poder hacer los registros con el procedimiento clave valor
         ContentValues registro = new ContentValues();
-        //registro por medio de clave valor
-
         registro.put("nombre", object.getNombre());
         registro.put("direccion", object.getDireccion());
         registro.put("descripcion", object.getDescripcion());
         registro.put("valor", object.getValor());
-        //Toast toast1 = Toast.makeText(contexts,"valor"+i,Toast.LENGTH_SHORT);
-        //toast1.show();
-        //argumento
-        //String [] arg = new String [] {"i"};
-        //condicion de ingreso mayor a 0
-        if(consulta.update("registro_pedidos",  registro, "id="+i, null) > 0){
-            respuesta= true;
+        registro.put("estado", 1);
+        if (consulta.update("registro_pedidos", registro, "id=" + i, null) > 0) {
+            respuesta = true;
             conexi.close();
+            consulta.close();
+            registro.clear();
         }
-
         return respuesta;
-
     }
+
     @Override
     public ArrayList<registros> read(Main3Activity context) {
         //se crea el arraylist donde se van a guardar la lista de registros que se almacenaran
@@ -135,6 +130,6 @@ public class DaoRegistros implements Iregistros {
         return elida;
     }
 
-    }
+}
 
 
