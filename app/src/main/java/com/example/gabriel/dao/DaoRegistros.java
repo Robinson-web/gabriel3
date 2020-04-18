@@ -30,7 +30,8 @@ public class DaoRegistros implements Iregistros {
         registro.put("direccion", object.getDireccion());
         registro.put("descripcion", object.getDescripcion());
         registro.put("valor", object.getValor());
-        registro.put("fecha", object.getFecha());
+        registro.put("fecha_entrega", object.getFecha());
+        registro.put("estado",1);
 
         //condicion de ingreso mayor a 0
         if (consulta.insert("registro_pedidos", null, registro) > 0) {
