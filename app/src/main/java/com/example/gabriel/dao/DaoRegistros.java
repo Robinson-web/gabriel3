@@ -44,9 +44,7 @@ public class DaoRegistros implements Iregistros {
         boolean respuesta = false;
         int i = via;
         Conexi conexi = new Conexi(contexts);
-        //se usa la clase SqlitedATABASE PARA poder sobre escribir la base de datos
         SQLiteDatabase consulta = conexi.getWritableDatabase();
-        //se usa el conten values para poder hacer los registros con el procedimiento clave valor
         ContentValues registro = new ContentValues();
         registro.put("nombre", object.getNombre());
         registro.put("direccion", object.getDireccion());
