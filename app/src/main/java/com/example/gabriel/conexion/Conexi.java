@@ -9,10 +9,9 @@ import androidx.annotation.Nullable;
 public class Conexi extends SQLiteOpenHelper {
 
     private static final String database = "bd_registros";
-    private static final int version = 2;
-    private static final int esta = 1;
-    private static final String tabla1 = "create table registro_pedidos(id integer primary key autoincrement, nombre text, direccion text, descripcion text, valor text, fecha_entrega text, estado integer, fecha_ingreso DEFAULT CURRENT_TIMESTAMP )";
-    private static final String t1 = "registro_pedidos";
+    private static final int version = 1;
+    private static final String tabla1 = "create table registro_pedidos(id integer primary key autoincrement, nombre text, telefono text, direccion text, descripcion text, valor text, feentre text, estado integer, fecharegistro text)";
+
 
     public Conexi(Context context) {
         super(context, database, null, version);
@@ -25,6 +24,7 @@ public class Conexi extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("ALTER TABLE registro_pedidos ADD COLUMN fecha_entrega text");
+        //sqLiteDatabase.execSQL("ALTER TABLE registro_pedidos ADD COLUMN estado integer");
+        //, fechae text, estado integer, fecha_ingreso DEFAULT CURRENT_TIMESTAMP
     }
 }

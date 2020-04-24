@@ -4,129 +4,250 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Main2Activity"
     android:orientation="vertical"
+    tools:context=".activity.Main2Activity"
 
     >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registro de Pedidos"
-        android:gravity="center"
-        android:fontFamily="cursive"
-        android:textSize="30dp"
         android:background="@android:color/holo_blue_light"
-        />
-    <EditText
-        android:id="@+id/Edt_Nombre"
-        android:layout_marginTop="25sp"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:hint="Nombre.."
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="7dp"
-        android:background="#d4eded"
-        />
-    <EditText
-        android:id="@+id/Edt_Direccion"
-        android:layout_marginTop="25sp"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:hint="Dirección.."
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="7dp"
-        android:background="#d4eded"
-        />
-    <EditText
-        android:id="@+id/Edt_Descripcion"
-        android:layout_marginTop="25sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Descripción.."
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="7dp"
-        android:gravity="top|left"
-        android:inputType="textCapCharacters|textMultiLine"
-        android:lines="4"
-        android:scrollHorizontally="true"
-        android:layout_centerInParent="true"
-        android:background="#d4eded"
-        />
-    <EditText
-        android:id="@+id/Edt_Valor"
-        android:layout_marginTop="25sp"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:hint="Valor.."
-        android:inputType="numberDecimal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="7dp"
-        android:background="#d4eded"
-        />
-    <EditText
-        android:id="@+id/Edt_Fecha"
-        android:layout_marginTop="25sp"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:hint="Fecha de entrega"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="7dp"
-        android:background="#d4eded"
-        android:ems="10"
-        android:inputType="date"
-        />
-    <Button
-        android:id="@+id/Btn_fecha"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Registro de Pedidos"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/Tv_Nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FECHA"
+        android:layout_marginLeft="10dp"
+        android:text="NOMBRE"
+        android:textSize="10dp" />
+
+    <EditText
+        android:id="@+id/Edt_Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:layout_marginLeft="5dp"
-        android:onClick="mostrarCalendario"
-        android:textSize="10dp"
-        />
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="7dp"
+        android:background="#d4eded"
+        android:hint="Nombre.."
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/Tv_Telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="TELEFONO:"
+        android:textSize="10dp" />
+
+    <EditText
+        android:id="@+id/Edt_Telefono"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="7dp"
+        android:background="#d4eded"
+        android:hint="Telefono.."
+        android:inputType="number|phone"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/Tv_direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="DIRECCION"
+        android:textSize="10dp" />
+
+    <EditText
+        android:id="@+id/Edt_Direccion"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="7dp"
+        android:background="#d4eded"
+        android:hint="Dirección.."
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/Tv_Descripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="DESCRIPCION DE PRODUCTO O VENTA:"
+        android:textSize="10dp" />
+
+    <EditText
+        android:id="@+id/Edt_Descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="7dp"
+        android:background="#d4eded"
+        android:gravity="top|left"
+        android:hint="Descripción.."
+        android:inputType="textCapCharacters|textMultiLine"
+        android:lines="4"
+        android:scrollHorizontally="true" />
+
+    <TextView
+        android:id="@+id/Tv_Valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="PRECIO O VALORES:"
+        android:textSize="10dp" />
+
+    <EditText
+        android:id="@+id/Edt_Valor"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="7dp"
+        android:background="#d4eded"
+        android:hint="Valor.."
+        android:inputType="numberDecimal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        >
+
+        <TextView
+            android:id="@+id/Tv_Estado"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="ESTADO DE
+            CLIENTE:"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/Edt_Estado"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@+id/Tv_Estado"
+            android:background="#d4eded"
+            android:gravity="center"
+            android:text="A" />
+        <!-- <Spinner
+             android:layout_width="wrap_content"
+             android:layout_height="35dp"
+             android:id="@+id/Sp_Estado"
+             android:layout_marginTop="10dp"
+             android:layout_toRightOf="@id/Edt_Estado"
+
+             />-->
+        <TextView
+            android:id="@+id/Tv_fecha"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@id/Edt_Estado"
+            android:gravity="center"
+            android:text="fecha
+            Entrega:"
+            android:textSize="10dp"
+
+            />
+
+        <EditText
+            android:id="@+id/Edt_Fecha"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/Tv_fecha"
+            android:background="#d4eded"
+            android:ems="10"
+            android:gravity="center"
+
+            android:hint="Fecha de entrega"
+            android:inputType="date"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/Btn_fecha"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="3px"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@id/Edt_Fecha"
+            android:onClick="mostrarCalendario"
+            android:text="FECHA"
+            android:textSize="8dp" />
+
+
+    </RelativeLayout>
 
 
     <RelativeLayout
-        android:layout_marginTop="25sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
         android:gravity="center">
+
         <Button
             android:id="@+id/Btn_Registrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registar"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:onClick="Onclick"
-            android:textSize="10dp"
-            />
+            android:text="Registar"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/Btn_Consul_Modi"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/Btn_Registrar"
+            android:onClick="Onclick"
+            android:text="Registros Inactivos"
+            android:textSize="8dp" />
+
         <Button
             android:id="@+id/Btn_Consultar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Consultar"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:layout_toRightOf="@id/Btn_Registrar"
             android:onClick="Onclick"
-            android:textSize="10dp"
-            />
+            android:text="Consultar"
+            android:textSize="8dp" />
+
         <Button
             android:id="@+id/Btn_Modificar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modificar"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:layout_toRightOf="@id/Btn_Consultar"
             android:onClick="Onclick"
-            android:textSize="10dp"
-            />
+            android:text="Modificar"
+            android:textSize="8dp" />
+
         <Button
             android:id="@+id/Btn_Eliminar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eliminar"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:layout_toRightOf="@id/Btn_Modificar"
             android:onClick="Onclick"
-            android:textSize="10dp"
-            />
+            android:text="Estado/inactivo"
+            android:textSize="8dp" />
 
     </RelativeLayout>
 </LinearLayout>

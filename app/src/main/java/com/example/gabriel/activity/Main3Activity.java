@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.example.gabriel.activity.Main2Activity;
 
 import com.example.gabriel.R;
@@ -32,26 +33,36 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        lista_re=findViewById(R.id.Lst_Registros);
+        this.lista_re = findViewById(R.id.Lst_Registros);
         cargalista();
-        String con = getIntent().getStringExtra("consu");
-
 
     }
 
     public void cargalista() {
-        DaoRegistros daoRegistros =new DaoRegistros();
-        final ArrayAdapter<registros> adapter = new ArrayAdapter<registros>(Main3Activity.this,android.R.layout.simple_list_item_1,daoRegistros.read(this));
+        DaoRegistros daoRegistros = new DaoRegistros();
+        final ArrayAdapter<registros> adapter = new ArrayAdapter<registros>(Main3Activity.this, android.R.layout.simple_list_item_1, daoRegistros.read(this));
         lista_re.setAdapter(adapter);
 
-        lista_re.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*lista_re.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 registros regis = adapter.getItem(i);
 
-                Intent intent2 = new Intent(getApplicationContext(),Main2Activity.class);
-                intent2.putExtra("id",regis.getId_registros());
+                Intent intent2 = new Intent(getApplicationContext(), Main2Activity.class);
+                intent2.putExtra("id", regis.getId_registros());
                 startActivity(intent2);
+
+            }
+        });*/
+        lista_re.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                registros regis = adapter.getItem(i);
+
+                Intent intent2 = new Intent(getApplicationContext(), Main2Activity.class);
+                intent2.putExtra("id", regis.getId_registros());
+                startActivity(intent2);
+                return true;
             }
         });
     }

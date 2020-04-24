@@ -6,6 +6,7 @@ public class registros {
 
     private int id_registros;
     private String nombre;
+    private String telefono;
     private String direccion;
     private String descripcion;
     private String valor;
@@ -13,27 +14,30 @@ public class registros {
     private int estado;
     private String fechaingreso;
 
-    public registros(){
-        this.id_registros=0;
-        this.nombre="";
-        this.direccion="";
-        this.descripcion="";
-        this.valor="";
-        this.fecha="";
-        this. estado=1;
-        this.fechaingreso="";
+    public registros() {
+        this.id_registros = 0;
+        this.nombre = "";
+        this.telefono = "";
+        this.direccion = "";
+        this.descripcion = "";
+        this.valor = "";
+        this.fecha = "";
+        this.estado = 1;
+        this.fechaingreso = "";
     }
 
-    public registros(int id_registros, String nombre, String direccion, String descripcion, String valor, String fecha,int estado,String fechaingreso) {
+    public registros(int id_registros, String nombre, String telefono, String direccion, String descripcion, String valor, String fecha, int estado, String fechaingreso) {
         this.id_registros = id_registros;
         this.nombre = nombre;
+        this.telefono = telefono;
         this.direccion = direccion;
         this.descripcion = descripcion;
         this.valor = valor;
         this.fecha = fecha;
-        this.estado=estado;
-        this.fechaingreso=fechaingreso;
+        this.estado = estado;
+        this.fechaingreso = fechaingreso;
     }
+
 
     public int getId_registros() {
         return id_registros;
@@ -49,6 +53,14 @@ public class registros {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getDireccion() {
@@ -101,12 +113,15 @@ public class registros {
 
     @Override
     public String toString() {
-        return "N#: "+this.id_registros +"\n"+
-                "Nombre: "+"\n"+this.nombre+"\n"+
-                "Direcciön: "+"\n"+this.direccion+"\n"+
-                "Descripción: "+"\n"+this.descripcion+"\n"+
-                "Valor: "+"\n"+this.valor+"\n"+
-                "Fecha entrega: "+"\n"+this.fecha+
-                "Fecha ingreso: "+"\n"+this.fechaingreso+"\n";
+        return "N#: " + this.id_registros + "\n" +
+                "Nombre: " + "\n" + this.nombre + "\n" +
+                "Telefono: " + "\n" + this.telefono + "\n" +
+                "Direcciön: " + "\n" + this.direccion + "\n" +
+                "Descripción: " + "\n" + this.descripcion + "\n" +
+                "Valor: " + "\n" + this.valor + "\n" +
+                "Fecha entrega: " + "\n" + this.fecha + "\n" +
+                "Estado: " + this.estado + "\n" +
+                "Fecha de registro: " + "\n" + this.fechaingreso;
+        //"Fecha ingreso: " + "\n" + this.fechaingreso;
     }
 }
