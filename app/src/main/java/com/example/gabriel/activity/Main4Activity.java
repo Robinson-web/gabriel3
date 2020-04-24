@@ -28,6 +28,8 @@ public class Main4Activity extends AppCompatActivity {
         Context context;
         lista_re_eli = findViewById(R.id.Lst_Registros_Eliminados);
         cargalista2();
+
+        ////pilas
     }
 
     public void cargalista2() {
